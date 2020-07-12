@@ -1,0 +1,26 @@
+.forecast-modal-container {
+  position: fixed;
+  width: 235px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.forecast-modal-background {
+  position: absolute;
+  width: 200px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #ded0d0cf;
+}

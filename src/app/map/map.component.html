@@ -1,4 +1,6 @@
 <div
   id="map"
   class="map weather-app-main-map"
+  (click)="getCoordinates($event)"
+  (mousedown)="stopEvent()"
 ></div>

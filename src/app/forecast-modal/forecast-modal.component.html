@@ -1,0 +1,16 @@
+<div
+  class="forecast-modal-background"
+  [@openClose]="isVisilbe ? 'open' : 'closed'"
+></div>
+<div
+  [@openClose]="isVisilbe ? 'open' : 'closed'"
+  class="forecast-modal-container"
+>
+  <app-forecast-item
+    *ngFor="let item of forecasts"
+    [icon]="item.icon"
+    [weatherType]="item.weatherType"
+    [temprature]="item.temprature"
+    [day]="item.day"
+  ></app-forecast-item>
+</div>
