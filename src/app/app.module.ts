@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ForecastItemComponent } from './forecast-item/forecast-item.component';
 import { ForecastModalComponent } from './forecast-modal/forecast-modal.component';
 import { MapComponent } from './map/map.component';
+import { PopupComponent } from './popup/popup.component';
 
 // Services
 import { WeatherService } from './weather.service';
@@ -20,6 +21,7 @@ import { WeatherService } from './weather.service';
     ForecastItemComponent,
     ForecastModalComponent,
     MapComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserAnimationsModule,

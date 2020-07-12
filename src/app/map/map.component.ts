@@ -18,18 +18,26 @@ export class MapComponent implements OnInit {
 
   @Input() modalIsVisible = false;
   @Output() clickEvent: EventEmitter<any[] | null> = new EventEmitter();
-  map: Map;
-  viableClick = false;
+  @Output() mapReposition: EventEmitter<{ left: number, top: number }> = new EventEmitter();
+  public map: Map;
+  private viableClick = false;
+  public coordinate: number[] = null;
 
   ngOnInit(): void {
     this.setupMap();
   }
 
-  setupMap(): void {
+  private setupMap(): void {
+    this.initMap();
+    this.centerMap();
+    this.setupEventListeners();
+  }
+
+  private initMap(): void {
     const centerOfHungary = [19.5, 47.2];
-    
+
     useGeographic();
-    
+
     this.map = new Map({
       target: 'map',
       view: new View({
@@ -45,23 +53,31 @@ export class MapComponent implements OnInit {
         new DragRotateAndZoom()
       ]),
     });
+    this.map.on('moveend', this.setPopupPosition);
+    this.map.on('pointermove', this.setPopupPosition);
+  }
 
+  private centerMap(): void {
     const necessaryExtentToContainHungary = [15.9, 46.2, 23.1, 49.4];
     const resolution = this.map.getView().getResolutionForExtent(necessaryExtentToContainHungary);
     const zoom = this.map.getView().getZoomForResolution(resolution);
-
     this.map.getView().setZoom(zoom);
-    console.log(zoom, this.map.getView().getZoom());
+  }
+
+  private setupEventListeners() {
+
   }
 
   public getCoordinates(event: MouseEvent): void {
     if (this.viableClick) {
       if (this.modalIsVisible) {
+        this.coordinate = null;
         this.clickEvent.emit(null);
       } else {
-        const coordinates = this.map.getCoordinateFromPixel([event.clientX, event.clientY]);
-        this.weatherService.getForecastByCoordinates(coordinates).subscribe(data => {
+        this.coordinate = this.map.getCoordinateFromPixel([event.clientX, event.clientY]);
+        this.weatherService.getForecastByCoordinates(this.coordinate).subscribe(data => {
           this.clickEvent.emit(data.forecast);
+          this.mapReposition.emit({ left: event.clientX, top: event.clientY })
         });
       }
     }
@@ -70,5 +86,12 @@ export class MapComponent implements OnInit {
   public stopEvent(): void {
     this.viableClick = true;
     setTimeout(() => this.viableClick = false, 200);
+  }
+
+  private setPopupPosition = (): void => {
+    if (this.coordinate) {
+      const pixel = this.map.getPixelFromCoordinate(this.coordinate);
+      this.mapReposition.emit({ left: pixel[0], top: pixel[1] });
+    }
   }
 }

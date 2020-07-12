@@ -1,3 +1,5 @@
+@import "src/app/styles/colors.scss";
+
 .forecast-item-coontainer {
   display: flex;
   align-items: center;
@@ -5,19 +7,18 @@
   height: 74px;
   margin: 10px 15px 10px 0;
   padding: 8px 8px 8px 12px;
-  background-color: #f1c7a4;
+  background-color: $modal-background;
   border-radius: 6px;
-  box-shadow: 0 1px 4px 2px #00000022;
-  color: #1713008a;
-  transform: translateX(0);
-  transition: transform .5s
-    all .21s;
+  box-shadow: 2px 1px 4px 2px $box-shadow;
+  color: $text;
+  transition: all .21s;
 
   &:hover {
-    background-color: #efb585;
-    transform: scale(1.1);
+    background-color: $modal-background-hover;
+    transform: scale(1.05);
     margin: 15px 0;
-    color: #171300b9;
+    color: $text-hover;
+    box-shadow: 3px 1px 5px 3px $box-shadow-hover;
   }
 
   img {

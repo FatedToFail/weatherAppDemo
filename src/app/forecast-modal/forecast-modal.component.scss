@@ -1,5 +1,6 @@
 .forecast-modal-container {
   position: fixed;
+  z-index: 10;
   width: 235px;
   top: 0;
   bottom: 0;

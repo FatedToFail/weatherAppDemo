@@ -14,7 +14,7 @@ const environmentFileContent = `
 export const environment = {
    production: ${process.env.PROD_IS_PRODUCTION},
    API_URL: '${process.env.PROD_API_URL}',
-   ANOTHER_API_SECRET: '${process.env.PROD_API_KEY}'
+   API_KEY: '${process.env.PROD_API_KEY}'
 };
 `;
 // write the content to the respective file

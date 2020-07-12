@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import WeatherForecast from './weather-forecast';
 import WeatherData from './weather-data';
+import { environment } from '../environments/environment';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   public getForecastByCoordinates([lon, lat]: number[]): Observable<WeatherForecast> {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/onecall?exclude=hourly,minutely,current&lat=${lat}&lon=${lon}&units=metric&lang=hu&appid=69fc5903875165ce620a666a99b42349`)
+    return this.http.get(`${environment.API_URL}/onecall?exclude=hourly,minutely,current&lat=${lat}&lon=${lon}&units=metric&lang=hu&appid=${environment.API_KEY}`)
       .pipe(
         map((weatherData: WeatherData) => new WeatherForecast(weatherData)),
         catchError(this.handleError)

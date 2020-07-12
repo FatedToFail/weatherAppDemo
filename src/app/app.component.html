@@ -2,9 +2,19 @@
   <app-map
     [modalIsVisible]="modalIsVisible"
     (clickEvent)="handleClick($event)"
+    (mapReposition)="handlePopupPosition($event)"
   ></app-map>
   <forecast-modal
     [forecasts]="forecasts"
     [isVisilbe]="modalIsVisible"
   ></forecast-modal>
+  <app-popup
+    *ngIf="forecasts[0]"
+    [icon]="forecasts[0].icon"
+    [weatherType]="forecasts[0].weatherType"
+    [temprature]="forecasts[0].temprature"
+    [day]="forecasts[0].day"
+    [positionLeft]="position.left"
+    [positionTop]="position.top"
+  ></app-popup>
 </div>
