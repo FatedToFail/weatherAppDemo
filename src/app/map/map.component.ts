@@ -12,15 +12,17 @@ import 'ol/ol.css';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  public map: Map; 
+  public map: Map;
 
   ngOnInit(): void {
     this.setupMap();
   }
 
   setupMap(): void {
+    const centerOfHungary = [19.5, 47];
+    
     useGeographic();
-    var centerOfHungary = [19.5, 47];
+    
     this.map = new Map({
       target: 'map',
       view: new View({
@@ -36,10 +38,11 @@ export class MapComponent implements OnInit {
         new DragRotateAndZoom()
       ]),
     });
+
     const necessaryExtent = [15.9, 45.7, 23.1, 48.6];
     const resolution = this.map.getView().getResolutionForExtent(necessaryExtent);
     const zoom = this.map.getView().getZoomForResolution(resolution);
+
     this.map.getView().setZoom(zoom);
-    console.log(this.map, zoom);
   }
 }
