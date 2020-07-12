@@ -69,7 +69,7 @@ export class ForecastModalComponent implements OnChanges {
     return 'openActive';
   }
 
-  public ngOnChanges(data): void {
-    console.log(data);
+  public ngOnChanges(): void {
+    if (!this.isVisilbe) this.isActive = false;
   }
 }

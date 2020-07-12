@@ -14,6 +14,7 @@ import { PopupComponent } from './popup/popup.component';
 // Services
 import { WeatherService } from './weather.service';
 import { GeoDataService } from './geo-data.service';
+import { TempraturePipe } from './temprature.pipe';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { GeoDataService } from './geo-data.service';
     ForecastModalComponent,
     MapComponent,
     PopupComponent,
+    TempraturePipe,
   ],
   imports: [
     BrowserAnimationsModule,
