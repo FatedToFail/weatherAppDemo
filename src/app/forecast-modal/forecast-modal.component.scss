@@ -1,5 +1,8 @@
+@import "src/styles/colors";
+
 .forecast-modal-container {
   position: fixed;
+  z-index: 10;
   width: 235px;
   top: 0;
   bottom: 0;
@@ -22,5 +25,5 @@
   height: 100vh;
   top: 0;
   left: 0;
-  background-color: #ded0d0cf;
+  background-color: $modal-faded-background;
 }

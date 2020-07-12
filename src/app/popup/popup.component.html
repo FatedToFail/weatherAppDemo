@@ -1,0 +1,14 @@
+<div
+  class="popup-coontainer"
+  [style.left.px]="positionLeft"
+  [style.top.px]="positionTop"
+>
+  <div class="popup-content">
+    <img [src]="icon" alt="icon" class="popup-icon">
+    <div class="popup-data">
+      <div class="popup-day">{{days[day.getDay()]}}</div>
+      <div class="popup-type">{{weatherType}}</div>
+      <div class="popup-temprature">{{temprature}} °C</div>
+    </div>
+  </div>
+</div>

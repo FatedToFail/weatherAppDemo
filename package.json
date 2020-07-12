@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "demo": "ts-node ./scripts/setup.ts --environment=prod && ng serve --open"
+    "demo": "ts-node ./scripts/setup.ts --environment=prod && ng serve -c production --open"
   },
   "private": true,
   "dependencies": {
