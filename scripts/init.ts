@@ -1,3 +1,4 @@
+const { writeFile } = require('fs');
 
 const initEnvironmentFileContent = `
 export const environment = {
@@ -13,12 +14,12 @@ writeFile('./src/environments/environment.prod.ts', initEnvironmentFileContent, 
   if (err) {
     console.log(err);
   }
-  console.log(`Wrote variables to ${targetPath}`);
+  console.log('Wrote variables to ./src/environments/environment.prod.ts');
 });
 
 writeFile('./src/environments/environment.ts', initEnvironmentFileContent, function (err) {
   if (err) {
     console.log(err);
   }
-  console.log(`Wrote variables to ${targetPath}`);
+  console.log('Wrote variables to ./src/environments/environment.ts');
 });
