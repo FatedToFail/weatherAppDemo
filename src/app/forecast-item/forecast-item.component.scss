@@ -1,0 +1,38 @@
+.forecast-item-coontainer {
+  display: flex;
+  align-items: center;
+  width: 195px;
+  height: 74px;
+  margin: 10px 15px 10px 0;
+  padding: 8px 8px 8px 12px;
+  background-color: #f1c7a4;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px 2px #00000022;
+  color: #1713008a;
+  transform: translateX(0);
+  transition: transform .5s
+    all .21s;
+
+  &:hover {
+    background-color: #efb585;
+    transform: scale(1.1);
+    margin: 15px 0;
+    color: #171300b9;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .forecast-item-day {
+    font-size: 20px;
+  }
+  .forecast-item-type {
+    margin: 4px 0;
+    font-size: 13px;
+  }
+  .forecast-item-temprature {
+    font-size: 20px;
+  }
+}

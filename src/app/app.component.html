@@ -1,3 +1,10 @@
 <div class="weather-app-main-container">
-  <app-map></app-map>
+  <app-map
+    [modalIsVisible]="modalIsVisible"
+    (clickEvent)="handleClick($event)"
+  ></app-map>
+  <forecast-modal
+    [forecasts]="forecasts"
+    [isVisilbe]="modalIsVisible"
+  ></forecast-modal>
 </div>
