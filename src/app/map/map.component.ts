@@ -53,8 +53,6 @@ export class MapComponent implements OnInit {
         new DragRotateAndZoom()
       ]),
     });
-    this.map.on('moveend', this.setPopupPosition);
-    this.map.on('pointermove', this.setPopupPosition);
   }
 
   private centerMap(): void {
@@ -65,7 +63,8 @@ export class MapComponent implements OnInit {
   }
 
   private setupEventListeners() {
-
+    this.map.on('moveend', this.setPopupPosition);
+    this.map.on('pointermove', this.setPopupPosition);
   }
 
   public getCoordinates(event: MouseEvent): void {
