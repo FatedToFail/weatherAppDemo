@@ -6,6 +6,7 @@
   [@openClose]="isVisilbe ? 'open' : 'closed'"
   class="forecast-modal-container"
 >
+  <div class="forecast-modal-day">{{city}}</div>
   <app-forecast-item
     *ngFor="let item of forecasts"
     [icon]="item.icon"

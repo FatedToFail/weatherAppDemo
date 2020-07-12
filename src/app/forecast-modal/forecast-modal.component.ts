@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import {
   animate, state, style,
   trigger, transition,
-} from '@angular/animations'
+} from '@angular/animations';
+import ForecastData from '../forecastData';
 
 
 @Component({
@@ -27,6 +28,7 @@ import {
   styleUrls: ['./forecast-modal.component.scss']
 })
 export class ForecastModalComponent {
-  @Input() isVisilbe = true;
-  @Input() forecasts;
+  @Input() isVisilbe: boolean;
+  @Input() forecasts: ForecastData[];
+  @Input() city: string;
 }

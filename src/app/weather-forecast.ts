@@ -1,14 +1,10 @@
 import WeatherData from './weather-data';
 import Forecast from './forecast';
+import ForecastData from './forecastData';
 
 
 export default class WeatherForecast {
-  public forecast: {
-    day: Date,
-    temprature: number,
-    weatherType: string,
-    icon: string
-  }[];
+  public forecast: ForecastData[];
 
   constructor(weatherData?: WeatherData) {
     this.forecast = weatherData?.daily.map((forecast: Forecast) => ({

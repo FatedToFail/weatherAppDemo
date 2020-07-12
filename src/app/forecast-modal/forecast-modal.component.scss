@@ -3,7 +3,7 @@
 .forecast-modal-container {
   position: fixed;
   z-index: 10;
-  width: 235px;
+  width: 245px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -13,6 +13,21 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 
+  .forecast-modal-day {
+    margin: 10px 10px 0 -10px;
+    padding: 4px 10px 4px 35px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .31px;
+    white-space: break-spaces;
+    text-overflow: ellipsis;
+    width: 197px;
+    overflow: hidden;
+    color: $modal-background;
+    background: $modal-text-background;
+    border-radius: 4px;
+    box-shadow: 2px 1px 4px 2px $box-shadow;
+  }
   
   &::-webkit-scrollbar {
     display: none;

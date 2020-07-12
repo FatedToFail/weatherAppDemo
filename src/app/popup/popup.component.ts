@@ -1,22 +1,41 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {
+  animate, state, style,
+  trigger, transition,
+} from '@angular/animations';
+
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        transform: 'scaleX(1)',
+        opacity: 1,
+      })),
+      state('closed', style({
+        opacity: 0,
+        transform: 'scaleX(.5)',
+      })),
+      transition('open => closed', [
+        animate('.13s ease-out')
+      ]),
+      transition('closed => open', [
+        animate('.21s ease-in')
+      ]),
+    ]),
+  ],
   styleUrls: ['./popup.component.scss']
 })
-export class PopupComponent implements OnInit {
+export class PopupComponent {
   @Input() icon: string;
-  @Input() day: Date;
+  @Input() city: string;
   @Input() temprature: number;
   @Input() weatherType: string;
   @Input() positionLeft: string;
   @Input() positionTop: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() isVisilbe: boolean;
 
   public days = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
 }
