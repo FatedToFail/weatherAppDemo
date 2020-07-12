@@ -4,6 +4,7 @@ import {
   trigger, transition,
 } from '@angular/animations'
 
+
 @Component({
   selector: 'forecast-modal',
   animations: [
