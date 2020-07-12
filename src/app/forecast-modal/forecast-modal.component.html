@@ -15,3 +15,28 @@
     [day]="item.day"
   ></app-forecast-item>
 </div>
+<div
+  class="forecast-modal-background-mobile"
+  [@openCloseMobile]="getState()"
+></div>
+<div
+  [@openCloseMobile]="getState()"
+  class="forecast-modal-container-mobile"
+>
+  <div class="forecast-modal-relative-container">
+    <div
+    class="forecast-modal-day"
+    (click)="setIsActive()"  
+    >
+      {{city}}
+    </div>
+    <app-forecast-item
+    *ngFor="let item of forecasts"
+    [icon]="item.icon"
+    [weatherType]="item.weatherType"
+    [temprature]="item.temprature"
+    [day]="item.day"
+    (setIsActive)="onClick"
+    ></app-forecast-item>
+  </div>
+</div>

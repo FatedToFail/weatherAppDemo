@@ -1,4 +1,5 @@
 @import "src/styles/colors.scss";
+@import "src/styles/breakpoints.scss";
 
 .popup-coontainer {
   position: absolute;
@@ -58,7 +59,20 @@
     font-size: 13px;
   }
   .popup-temprature {
+    display: none;
     font-size: 20px;
     margin-right: 10px;
+
+    @include media-breakpoint-up(sm) {
+      display: unset;
+    }
+
+    &-mobile {
+      display: unset;
+
+      @include media-breakpoint-up(sm) {
+        display: none;
+      }
+    }
   }
 }
