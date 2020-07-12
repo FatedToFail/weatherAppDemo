@@ -1,8 +1,8 @@
 <div class="forecast-item-coontainer">
   <img [src]="icon" alt="icon" class="forecast-item-icon">
   <div class="forecast-item-data">
-    <div class="forecast-item-day">{{days[day.getDay()]}}</div>
+    <div class="forecast-item-day">{{day | date: 'EEEE'}}</div>
     <div class="forecast-item-type">{{weatherType}}</div>
-    <div class="forecast-item-temprature">{{temprature}} °C</div>
+    <div class="forecast-item-temprature">{{temprature | temprature}} °C</div>
   </div>
 </div>

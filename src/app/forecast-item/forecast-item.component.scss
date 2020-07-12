@@ -1,11 +1,12 @@
-@import "src/app/styles/colors.scss";
+@import "src/styles/colors.scss";
+@import "src/styles/breakpoints.scss";
 
 .forecast-item-coontainer {
   display: flex;
   align-items: center;
-  width: 195px;
+  width: unset;
   height: 74px;
-  margin: 10px 15px 10px 0;
+  margin: 15px;
   padding: 8px 8px 8px 12px;
   background-color: $modal-background;
   border-radius: 6px;
@@ -13,12 +14,20 @@
   color: $text;
   transition: all .21s;
 
+  @include media-breakpoint-up(sm) {
+    margin: 10px 15px 10px 0;
+    width: 195px;
+  }
+
   &:hover {
     background-color: $modal-background-hover;
-    transform: scale(1.05);
     margin: 15px 0;
     color: $text-hover;
     box-shadow: 3px 1px 5px 3px $box-shadow-hover;
+
+    @include media-breakpoint-up(sm) {
+      transform: scale(1.05);
+    }
   }
 
   img {

@@ -4,8 +4,11 @@ import { Map, View } from 'ol/index';
 import { Tile as TileLayer } from 'ol/layer';
 import { OSM } from 'ol/source';
 import { defaults, DragRotateAndZoom } from 'ol/interaction';
+import { GeoDataService } from '../geo-data.service';
 import { WeatherService } from '../weather.service';
 import 'ol/ol.css';
+import { GeoAndForecastService } from '../geo-and-forecast.service';
+import ForecastData from '../forecastData';
 
 
 @Component({
@@ -14,10 +17,10 @@ import 'ol/ol.css';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  constructor(private weatherService: WeatherService) { }
+  constructor(private geoAndForecastService: GeoAndForecastService) { }
 
   @Input() modalIsVisible = false;
-  @Output() clickEvent: EventEmitter<any[] | null> = new EventEmitter();
+  @Output() clickEvent: EventEmitter<{ forecast: ForecastData[], current: ForecastData, geo: string }> = new EventEmitter();
   @Output() mapReposition: EventEmitter<{ left: number, top: number }> = new EventEmitter();
   public map: Map;
   private viableClick = false;
@@ -74,8 +77,8 @@ export class MapComponent implements OnInit {
         this.clickEvent.emit(null);
       } else {
         this.coordinate = this.map.getCoordinateFromPixel([event.clientX, event.clientY]);
-        this.weatherService.getForecastByCoordinates(this.coordinate).subscribe(data => {
-          this.clickEvent.emit(data.forecast);
+        this.geoAndForecastService.getCityAndForecastByCoordinate(this.coordinate).subscribe(data => {
+          this.clickEvent.emit(data);
           this.mapReposition.emit({ left: event.clientX, top: event.clientY })
         });
       }

@@ -1,9 +1,11 @@
 @import "src/styles/colors.scss";
+@import "src/styles/breakpoints.scss";
 
 .forecast-modal-container {
+  display: none;
   position: fixed;
   z-index: 10;
-  width: 235px;
+  width: 245px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -13,17 +15,98 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: initial;
+  }
+}
+
+.forecast-modal-container-mobile {
+  display: initial;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
+
+  .forecast-modal-relative-container {
+    position: relative;
+    width: 100vw;
+  }
+}
+
+.forecast-modal-day {
+  position: sticky;
+  z-index: 11;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .31px;
+  white-space: break-spaces;
+  text-overflow: ellipsis;
+  width: unset;
+  overflow: hidden;
+  color: $modal-background;
+  background: $modal-text-background;
+  box-shadow: 2px 1px 4px 2px $box-shadow;
+  text-align: center;
+
+  @include media-breakpoint-up(sm) {
+    position: unset;
+    margin: 10px 10px 0 -10px;
+    padding: 4px 10px 4px 35px;
+    width: 197px;
+    border-radius: 4px;
+  }
 }
 
 .forecast-modal-background {
+  display: none;
   position: absolute;
   width: 200px;
   height: 100vh;
+  z-index: 9;
   top: 0;
   left: 0;
   background-color: $modal-faded-background;
+
+  @include media-breakpoint-up(sm) {
+    display: initial;
+  }
+}
+
+.forecast-modal-background-mobile {
+  display: initial;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $modal-faded-background;
+
+  @include media-breakpoint-up(sm) {
+    display: none;
+  }
 }

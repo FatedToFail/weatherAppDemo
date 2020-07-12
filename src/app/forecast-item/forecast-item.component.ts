@@ -11,6 +11,4 @@ export class ForecastItemComponent {
   @Input() day: Date;
   @Input() temprature: number;
   @Input() weatherType: string;
-
-  public days = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
 }

@@ -13,6 +13,8 @@ import { PopupComponent } from './popup/popup.component';
 
 // Services
 import { WeatherService } from './weather.service';
+import { GeoDataService } from './geo-data.service';
+import { TempraturePipe } from './temprature.pipe';
 
 
 @NgModule({
@@ -22,13 +24,17 @@ import { WeatherService } from './weather.service';
     ForecastModalComponent,
     MapComponent,
     PopupComponent,
+    TempraturePipe,
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [WeatherService],
+  providers: [
+    WeatherService,
+    GeoDataService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
