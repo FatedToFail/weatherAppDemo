@@ -12,8 +12,10 @@ import { MapComponent } from './map/map.component';
 import { PopupComponent } from './popup/popup.component';
 
 // Services
-import { WeatherService } from './weather.service';
 import { GeoDataService } from './geo-data.service';
+import { WeatherService } from './weather.service';
+
+// Pipes
 import { TempraturePipe } from './temprature.pipe';
 
 
@@ -32,8 +34,8 @@ import { TempraturePipe } from './temprature.pipe';
     HttpClientModule,
   ],
   providers: [
-    WeatherService,
     GeoDataService,
+    WeatherService,
   ],
   bootstrap: [AppComponent],
 })

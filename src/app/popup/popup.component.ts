@@ -36,6 +36,4 @@ export class PopupComponent {
   @Input() positionLeft: string;
   @Input() positionTop: string;
   @Input() isVisilbe: boolean;
-
-  public days = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
 }

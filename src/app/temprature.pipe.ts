@@ -6,6 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TempraturePipe implements PipeTransform {
   transform(value: number): string {
-    return value.toFixed(1);
+    return value ? value.toFixed(1) : '';
   }
 }

@@ -4,11 +4,9 @@ import { Map, View } from 'ol/index';
 import { Tile as TileLayer } from 'ol/layer';
 import { OSM } from 'ol/source';
 import { defaults, DragRotateAndZoom } from 'ol/interaction';
-import { GeoDataService } from '../geo-data.service';
-import { WeatherService } from '../weather.service';
-import 'ol/ol.css';
 import { GeoAndForecastService } from '../geo-and-forecast.service';
 import ForecastData from '../forecastData';
+import 'ol/ol.css';
 
 
 @Component({
