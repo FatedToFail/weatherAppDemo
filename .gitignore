@@ -2,7 +2,7 @@
 
 # safety
 .env
-/src/environments
+/src/environments/**
 
 # compiled output
 /dist
